@@ -1,0 +1,72 @@
+\ProvidesPackage{fullresume}
+
+%
+% Packages
+%
+\RequirePackage[default]{sourcesanspro}
+\RequirePackage[pdfborder={0 0 0}]{hyperref}
+\RequirePackage{enumitem}
+\RequirePackage[x11names]{xcolor}
+\RequirePackage{multicol}
+\RequirePackage{etoolbox}
+\RequirePackage{geometry}
+
+%
+% Geometry
+%
+\geometry{
+  margin=.5in,
+}
+
+%
+% Enumerate formatting
+%
+\setlist{nosep,
+  itemsep=.5em,
+  itemindent=-1em,
+  leftmargin=1em,
+  label={}
+}
+
+%
+% Column setup
+%
+\setlength{\columnsep}{3em}
+
+%
+% Colors
+%
+\definecolor{primary}{RGB}{36, 60, 84}
+\definecolor{flair}{RGB}{60, 227, 180}
+\definecolor{secondary}{RGB}{97, 125, 136}
+
+%
+% Verbose Flag
+%
+\newif\ifverbose
+\verbosefalse
+
+%
+% Custom Commands
+%
+\newcommand{\itemcolor}[1]{%
+\item \textcolor{secondary}{\textbf{#1}}
+}
+
+\newcommand{\colorSection}[1]{%
+  \section*{\textcolor{primary}{#1}}%
+}
+
+\newenvironment{subenum}{%
+  \begin{enumerate}[label=-,itemindent=0em,itemsep=0em]%
+    }{%
+  \end{enumerate}%
+}
+
+\newcommand{\sectioninput}[2][]{%
+  \bigskip
+  {\color{primary}\hrule height 1pt}%
+  \verbosefalse
+  \ifstrequal{#1}{verbose}{\verbosetrue}{}%
+  \input{#2}%
+}

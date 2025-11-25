@@ -1,78 +1,22 @@
 \documentclass{article}
-%
-% enumerate formatting
-%
-\usepackage[default]{sourcesanspro}
-\usepackage[pdfborder={0 0 0}]{hyperref}
-\usepackage{enumitem}
-\usepackage[x11names]{xcolor}
-\usepackage{multicol}
-
-\usepackage{geometry}
-\geometry{
-  margin=.5in,
-  % bottom=.75in
-  % showframe
-}
-%
-% enumerate formatting
-%
-\setlist{nosep,
-  itemsep=.5em,
-  itemindent=-1em,
-  leftmargin=1em,
-  label={}
-}
-%
-% Colors
-%
-\definecolor{darkcerulean}{rgb}{0.03, 0.27, 0.49}
-\definecolor{primary}{RGB}{36, 60, 84}
-\definecolor{secondary}{RGB}{60, 227, 180}
-\definecolor{flair}{RGB}{97, 125, 136}
-%
-% Custom Commands
-%
-\newcommand{\itemcolor}[1]{
-\item \textcolor{flair}{\textbf{#1}}
-}
-\newcommand{\colorSection}[1]{
-  % \begin{center}
-  \section*{\textcolor{primary}{#1}}
-  % \end{center}
-}
-\newif\ifverbose
-\verbosefalse
-
-\newenvironment{subenum}{
-  \begin{enumerate}[label=-,itemindent=0em,itemsep=0em]
-    }{
-  \end{enumerate}
-}
-
-%
-% Column setup
-%
-\setlength{\columnsep}{3em}
+\usepackage{fullresume}
 
 \begin{document}
 \thispagestyle{empty}
 
-%
-% Head Title
-%
-\noindent{\huge Alexander \textbf{\color{secondary}Buck}}\hfill  \today\\
-\href{mailto:alexjbuck@gmail.com}{alexjbuck@gmail.com} $\cdot$ (630) 207-2555\\
+\noindent{\huge {\color{primary}Alexander}
+\textbf{\color{flair}Buck}}\hfill  \today\\
+\href{mailto:alexjbuck@gmail.com}{alexjbuck@gmail.com}
+$\cdot$ (630) 207-2555\\
 
-\begin{multicols}{2}
-  \input{section_experience.tex}
-  \input{section_projects.tex}
-  \input{section_skills.tex}
-  \input{section_education.tex}
-  \input{section_professionalDevelopment.tex}
-  \input{section_awardsHonors.tex}
-  \input{section_publications.tex}
-  \input{section_securityClearance.tex}
-
-\end{multicols}
+%% \begin{multicols}{2}
+\sectioninput[verbose]{section_experience.tex}
+\sectioninput[verbose]{section_projects.tex}
+\sectioninput[verbose]{section_skills.tex}
+\sectioninput[verbose]{section_education.tex}
+\sectioninput[verbose]{section_professionalDevelopment.tex}
+\sectioninput[verbose]{section_awardsHonors.tex}
+\sectioninput[verbose]{section_publications.tex}
+\sectioninput[verbose]{section_securityClearance.tex}
+%% \end{multicols}
 \end{document}
