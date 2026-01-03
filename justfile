@@ -1,8 +1,8 @@
 build:
-  latexmk -pdf main.tex
+    latexmk -pdf main.tex
 
 format:
-  tex-fmt *.tex
+    tex-fmt *.tex
 
 clean:
-  latexmk -c
+    latexmk -c
